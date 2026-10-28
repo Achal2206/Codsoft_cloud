@@ -1,0 +1,19 @@
+{
+  "name": "codsoft-cloud-computing-internship",
+  "version": "1.0.0",
+  "description": "CodSoft Cloud Computing Internship Tasks 1, 3, and 5",
+  "scripts": {
+    "start:task1": "node TASK-1_Cloud-File-Storage/server.js",
+    "start:task3": "node TASK-3_Bus-Ticket-Reservation/server.js",
+    "start:task5": "node TASK-5_Student-Management-System/server.js"
+  },
+  "keywords": [
+    "codsoft",
+    "cloud-computing",
+    "aws-s3",
+    "concurrency",
+    "rbac"
+  ],
+  "author": "CodSoft Intern",
+  "license": "MIT"
+}

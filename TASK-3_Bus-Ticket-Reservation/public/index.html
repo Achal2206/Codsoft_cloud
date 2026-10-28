@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodSoft CloudBus - Cloud Bus Ticket Reservation System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="6" width="18" height="12" rx="2"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="17" cy="18" r="2"/>
+            <path d="M7 6v4h10V6"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>CodSoft <span>CloudBus</span></h1>
+          <span class="badge-task">Task 3: Bus Ticket Reservation</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" id="tabSearchBuses">🚌 Book Bus</button>
+        <button class="nav-btn" id="tabManageBookings">🎟️ Manage Booking</button>
+        <button class="nav-btn" id="btnCloudArch">☁️ High-Traffic Architecture</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- SEARCH & BOOKING VIEW -->
+    <div id="bookingView" class="view-panel">
+      <!-- Search Banner -->
+      <section class="search-banner glass-panel">
+        <div class="search-form-row">
+          <div class="input-field-group">
+            <label>FROM</label>
+            <div class="input-with-icon">
+              <span class="input-icon">📍</span>
+              <select id="searchFrom" class="select-styled">
+                <option value="">All Cities</option>
+                <option value="Mumbai" selected>Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Goa">Goa</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn-swap" id="btnSwapCities" title="Swap Cities">⇄</button>
+
+          <div class="input-field-group">
+            <label>TO</label>
+            <div class="input-with-icon">
+              <span class="input-icon">🎯</span>
+              <select id="searchTo" class="select-styled">
+                <option value="">All Destinations</option>
+                <option value="Pune" selected>Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Goa">Goa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label>JOURNEY DATE</label>
+            <div class="input-with-icon">
+              <span class="input-icon">📅</span>
+              <input type="date" id="searchDate" class="input-styled">
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label>BUS TYPE</label>
+            <select id="searchBusType" class="select-styled">
+              <option value="all">All Bus Classes</option>
+              <option value="Sleeper">AC Sleeper</option>
+              <option value="Semi-Sleeper">Semi-Sleeper</option>
+              <option value="Volvo">Volvo Multi-Axle</option>
+            </select>
+          </div>
+
+          <button class="btn-primary btn-search" id="btnSearch">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Search Buses
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Header & Filters -->
+      <section class="results-header">
+        <div>
+          <h2 id="routesResultCount">Available Buses</h2>
+          <p id="routeSubtitle">Showing real-time cloud inventory</p>
+        </div>
+        <div class="sort-controls">
+          <span>Sort by:</span>
+          <select id="sortRoutes" class="select-styled">
+            <option value="rating">Top Rated (⭐)</option>
+            <option value="price_low">Price: Low to High</option>
+            <option value="price_high">Price: High to Low</option>
+            <option value="departure">Departure Time</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Bus Cards Container -->
+      <section class="bus-list" id="busList">
+        <!-- Rendered via JS -->
+      </section>
+    </div>
+
+    <!-- MANAGE BOOKING VIEW -->
+    <div id="manageView" class="view-panel" style="display: none;">
+      <section class="manage-search glass-panel">
+        <div class="manage-search-content">
+          <h2>🎟️ Manage Your Bus Reservation</h2>
+          <p>Retrieve, print, or cancel your confirmed booking using your PNR or registered phone number.</p>
+          <div class="manage-input-row">
+            <input type="text" id="manageQueryInput" placeholder="Enter PNR (e.g. CS-BUS-849201) or Phone (+91 9876543210)">
+            <button class="btn-primary" id="btnFindBooking">Find Ticket</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="manageResultContainer" class="manage-result">
+        <!-- Injected via JS -->
+      </section>
+    </div>
+  </main>
+
+  <!-- Interactive Seat Selection Drawer / Modal -->
+  <div class="modal-backdrop" id="seatModal" style="display: none;">
+    <div class="modal-dialog modal-bus glass-panel">
+      <div class="modal-header">
+        <div>
+          <h3 id="seatModalBusName">Zingbus Electric Superfast</h3>
+          <span class="seat-modal-sub" id="seatModalSub">Mumbai ➔ Pune | Dep: 06:30 AM</span>
+        </div>
+        <button class="btn-close" id="btnCloseSeatModal">&times;</button>
+      </div>
+
+      <div class="seat-modal-content">
+        <!-- Left: Bus Seat Map -->
+        <div class="bus-layout-wrapper">
+          <div class="bus-front-cabin">
+            <div class="steering-wheel" title="Driver Cabin">☸️ Driver</div>
+            <div class="entry-door">🚪 Entrance</div>
+          </div>
+
+          <!-- Seat Legend -->
+          <div class="seat-legend">
+            <div class="legend-item"><span class="seat-sample available"></span> Available</div>
+            <div class="legend-item"><span class="seat-sample selected"></span> Selected</div>
+            <div class="legend-item"><span class="seat-sample booked"></span> Booked</div>
+            <div class="legend-item"><span class="seat-sample held"></span> On Hold</div>
+            <div class="legend-item"><span class="seat-sample women"></span> Women</div>
+          </div>
+
+          <!-- Seats Grid -->
+          <div class="seat-grid-container" id="seatGridContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Checkout Sidebar -->
+        <div class="checkout-sidebar glass-panel">
+          <h4>Booking Summary</h4>
+          
+          <div class="lease-timer-box" id="leaseTimerBox" style="display: none;">
+            <div class="timer-badge">
+              <span class="pulse-dot"></span>
+              <span>Seat Hold Timer:</span>
+              <strong id="leaseTimerDisplay">05:00</strong>
+            </div>
+            <p class="timer-note">Seats are held for high-concurrency safety.</p>
+          </div>
+
+          <div class="selected-seats-box">
+            <label>Selected Seats:</label>
+            <div id="selectedSeatsChips" class="seats-chips">
+              <span class="no-seat-text">Click seats to select</span>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Fare (<span id="seatCountText">0</span> seat):</span>
+              <span id="baseFareText">₹0</span>
+            </div>
+            <div class="price-row">
+              <span>GST & Taxes (5%):</span>
+              <span id="gstFareText">₹0</span>
+            </div>
+            <div class="price-row">
+              <span>Cloud Platform Fee:</span>
+              <span>₹25</span>
+            </div>
+            <div class="price-row total-row">
+              <strong>Total Amount:</strong>
+              <strong id="totalFareText" class="total-amount">₹0</strong>
+            </div>
+          </div>
+
+          <!-- Passenger Details Form -->
+          <div class="passenger-form-group">
+            <h5>Passenger Details</h5>
+            <div id="passengerInputsContainer">
+              <!-- Dynamically added per selected seat -->
+            </div>
+
+            <div class="form-field">
+              <label>Contact Email</label>
+              <input type="email" id="inputEmail" placeholder="your.name@gmail.com" value="user@codsoft.cloud">
+            </div>
+
+            <div class="form-field">
+              <label>Mobile Number</label>
+              <input type="tel" id="inputPhone" placeholder="+91 9876543210" value="+91 9876543210">
+            </div>
+
+            <div class="form-field">
+              <label>Boarding Point</label>
+              <select id="selectBoarding" class="select-styled"></select>
+            </div>
+
+            <div class="form-field">
+              <label>Dropping Point</label>
+              <select id="selectDropping" class="select-styled"></select>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-block" id="btnConfirmBooking" disabled>
+            🔒 Reserve & Confirm (₹<span id="btnPayAmount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boarding Pass / E-Ticket Modal -->
+  <div class="modal-backdrop" id="ticketModal" style="display: none;">
+    <div class="modal-dialog modal-ticket glass-panel">
+      <div class="modal-header">
+        <h3>🎉 Booking Confirmed! E-Ticket Issued</h3>
+        <button class="btn-close" id="btnCloseTicketModal">&times;</button>
+      </div>
+
+      <div class="ticket-wrapper" id="printableTicket">
+        <div class="ticket-header">
+          <div class="ticket-brand">
+            <div class="ticket-logo">🚌 CodSoft CloudBus</div>
+            <div class="pnr-badge">PNR: <strong id="ticketPnr">CS-BUS-123456</strong></div>
+          </div>
+          <div class="ticket-status-pill">CONFIRMED</div>
+        </div>
+
+        <div class="ticket-route-strip">
+          <div class="strip-node">
+            <h4 id="ticketFrom">Mumbai</h4>
+            <p id="ticketDepTime">06:30 AM</p>
+          </div>
+          <div class="strip-arrow">
+            <span id="ticketDuration">3h 30m</span>
+            ➔
+          </div>
+          <div class="strip-node">
+            <h4 id="ticketTo">Pune</h4>
+            <p id="ticketArrTime">10:00 AM</p>
+          </div>
+        </div>
+
+        <div class="ticket-grid">
+          <div class="ticket-field">
+            <label>OPERATOR</label>
+            <p id="ticketOperator">Zingbus Electric Superfast</p>
+          </div>
+          <div class="ticket-field">
+            <label>JOURNEY DATE</label>
+            <p id="ticketDate">2026-10-22</p>
+          </div>
+          <div class="ticket-field">
+            <label>SEAT NUMBERS</label>
+            <p id="ticketSeats" class="highlight-seats">S1, S2</p>
+          </div>
+          <div class="ticket-field">
+            <label>TOTAL FARE PAID</label>
+            <p id="ticketFare">₹1,385</p>
+          </div>
+          <div class="ticket-field">
+            <label>BOARDING POINT</label>
+            <p id="ticketBoarding">Borivali (06:00 AM)</p>
+          </div>
+          <div class="ticket-field">
+            <label>DROPPING POINT</label>
+            <p id="ticketDropping">Swargate (10:00 AM)</p>
+          </div>
+        </div>
+
+        <div class="ticket-passengers-section">
+          <label>PASSENGERS</label>
+          <div id="ticketPassengersList" class="ticket-passengers-list"></div>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="qr-mock">
+            <div class="qr-code-box">▦ QR-TICKET-VALID ▦</div>
+            <span class="qr-label">Scan at Bus Entry</span>
+          </div>
+          <div class="ticket-notice">
+            <p>Please carry a valid Govt ID along with this digital ticket.</p>
+            <p>Customer Support: <strong>support@codsoft.in</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="window.print()">🖨️ Print Ticket</button>
+        <button class="btn-primary" id="btnDoneTicket">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-Traffic Architecture Modal -->
+  <div class="modal-backdrop" id="archModal" style="display: none;">
+    <div class="modal-dialog modal-lg glass-panel">
+      <div class="modal-header">
+        <h3>☁️ High-Traffic Cloud Architecture (Task 3)</h3>
+        <button class="btn-close" id="btnCloseArchModal">&times;</button>
+      </div>
+      <div class="modal-body arch-modal-body">
+        <div class="arch-card">
+          <h4>Concurrency & Double-Booking Protection</h4>
+          <p>Online ticket reservation systems experience intense concurrent surges. To prevent double-booking, the system employs an <strong>Optimistic Locking & Ephemeral Seat-Lease</strong> pattern.</p>
+        </div>
+
+        <div class="arch-features-grid">
+          <div class="arch-feat">
+            <div class="feat-icon">⏱️</div>
+            <h5>Atomic 5-Min Lease</h5>
+            <p>When a passenger selects a seat, an atomic lease lock is granted with an expiry timestamp. Other passengers see this seat as "On Hold".</p>
+          </div>
+          <div class="arch-feat">
+            <div class="feat-icon">🧹</div>
+            <h5>Automated Sweeper</h5>
+            <p>A background worker continuously clears abandoned holds, instantly returning seats to the available pool without database locks.</p>
+          </div>
+          <div class="arch-feat">
+            <div class="feat-icon">⚡</div>
+            <h5>Scalable Throughput</h5>
+            <p>Stateless API endpoints ready for Azure Functions, Azure App Service, or Azure Container Apps behind Azure Front Door / Load Balancer.</p>
+          </div>
+          <div class="arch-feat">
+            <div class="feat-icon">🛡️</div>
+            <h5>ACID Integrity</h5>
+            <p>Transactions are validated before commit to guarantee that no two users ever receive the same seat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

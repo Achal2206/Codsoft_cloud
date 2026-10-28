@@ -1,0 +1,42 @@
+[
+  {
+    "id": "CS301",
+    "code": "CS-301",
+    "title": "Cloud Computing Architecture",
+    "instructor": "Prof. Ananya Sharma",
+    "credits": 4,
+    "semester": "Spring 2026",
+    "schedule": "Mon/Wed 10:00 AM - 11:30 AM",
+    "room": "Cloud Lab 4"
+  },
+  {
+    "id": "CS302",
+    "code": "CS-302",
+    "title": "Distributed Systems & Microservices",
+    "instructor": "Prof. Ananya Sharma",
+    "credits": 4,
+    "semester": "Spring 2026",
+    "schedule": "Tue/Thu 02:00 PM - 03:30 PM",
+    "room": "Lecture Hall B"
+  },
+  {
+    "id": "CS204",
+    "code": "CS-204",
+    "title": "Database Management & Cloud SQL",
+    "instructor": "Prof. Rajesh Kulkarni",
+    "credits": 3,
+    "semester": "Spring 2026",
+    "schedule": "Fri 09:00 AM - 12:00 PM",
+    "room": "Computing Hall 1"
+  },
+  {
+    "id": "CS405",
+    "code": "CS-405",
+    "title": "DevOps & Container Orchestration (Kubernetes)",
+    "instructor": "Prof. Ananya Sharma",
+    "credits": 3,
+    "semester": "Spring 2026",
+    "schedule": "Wed/Fri 04:00 PM - 05:30 PM",
+    "room": "Cloud Lab 2"
+  }
+]

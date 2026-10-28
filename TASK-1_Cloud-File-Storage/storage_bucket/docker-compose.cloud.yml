@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  cloud-storage:
+    image: codsoft/cloud-storage:latest
+    ports:
+      - "5001:5001"
+    environment:
+      - STORAGE_MODE=s3_compatible

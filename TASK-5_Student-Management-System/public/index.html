@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodSoft CloudEdu - Cloud Student Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>CodSoft <span>CloudEdu</span></h1>
+          <span class="badge-task">Task 5: Student Management System</span>
+        </div>
+      </div>
+
+      <!-- Quick Role Switcher for instant evaluator testing -->
+      <div class="role-switcher-bar">
+        <span class="role-label">Switch Role:</span>
+        <button class="role-pill-btn active" data-role="admin" id="btnRoleAdmin">
+          👑 Admin
+        </button>
+        <button class="role-pill-btn" data-role="teacher" id="btnRoleTeacher">
+          👩‍🏫 Teacher
+        </button>
+        <button class="role-pill-btn" data-role="student" id="btnRoleStudent">
+          👨‍🎓 Student
+        </button>
+      </div>
+
+      <!-- Active User Profile Indicator -->
+      <div class="user-profile-badge">
+        <div class="user-avatar" id="navAvatar">👨‍💼</div>
+        <div class="user-meta">
+          <span class="user-name" id="navUserName">Dr. Arvind Mehta</span>
+          <span class="user-role-tag" id="navUserRole">Administrator</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- ==================== 1. ADMIN VIEW ==================== -->
+    <div id="viewAdmin" class="role-view">
+      <!-- Admin Metric Cards -->
+      <section class="metrics-grid">
+        <div class="metric-card glass-panel">
+          <div class="metric-header">
+            <span class="metric-title">Total Enrolled Students</span>
+            <span class="metric-badge success">Cloud DB</span>
+          </div>
+          <div class="metric-number" id="adminTotalStudents">5</div>
+          <div class="metric-subtitle">Active Academic Profiles</div>
+        </div>
+
+        <div class="metric-card glass-panel">
+          <div class="metric-header">
+            <span class="metric-title">Active Courses</span>
+            <span class="metric-badge info">Spring 2026</span>
+          </div>
+          <div class="metric-number" id="adminTotalCourses">4</div>
+          <div class="metric-subtitle">Cloud & Systems Curriculum</div>
+        </div>
+
+        <div class="metric-card glass-panel">
+          <div class="metric-header">
+            <span class="metric-title">Institution Average CGPA</span>
+            <span class="metric-badge">Academic High</span>
+          </div>
+          <div class="metric-number" id="adminAvgCgpa">3.50</div>
+          <div class="metric-subtitle">Out of 4.0 Scale</div>
+        </div>
+
+        <div class="metric-card glass-panel">
+          <div class="metric-header">
+            <span class="metric-title">At-Risk Students</span>
+            <span class="metric-badge warning">Intervention</span>
+          </div>
+          <div class="metric-number" id="adminWarningCount">1</div>
+          <div class="metric-subtitle">&lt;75% Attendance or &lt;2.5 CGPA</div>
+        </div>
+      </section>
+
+      <!-- Navigation Tabs within Admin -->
+      <div class="sub-nav-tabs">
+        <button class="sub-tab-btn active" id="tabAdminStudents">📋 Students Directory</button>
+        <button class="sub-tab-btn" id="tabAdminCourses">📚 Courses Catalog</button>
+        <button class="sub-tab-btn" id="tabAdminAnalytics">📊 Analytics & Performance</button>
+      </div>
+
+      <!-- Admin: Students Table Panel -->
+      <section id="panelAdminStudents" class="admin-panel glass-panel">
+        <div class="panel-header">
+          <div>
+            <h3>Student Roster & Profiles</h3>
+            <p>Manage, add, and inspect student records stored in cloud database.</p>
+          </div>
+          <div class="panel-actions">
+            <div class="search-box">
+              <input type="text" id="adminStudentSearch" placeholder="Search by name or roll no...">
+            </div>
+            <button class="btn-primary" id="btnOpenAddStudentModal">+ Add Student</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th>Semester</th>
+                <th>CGPA</th>
+                <th>Status</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminStudentsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Admin: Courses Panel -->
+      <section id="panelAdminCourses" class="admin-panel glass-panel" style="display: none;">
+        <div class="panel-header">
+          <div>
+            <h3>Course Curriculum & Faculty Assignment</h3>
+            <p>Manage cloud university courses, syllabus credits, and instructors.</p>
+          </div>
+          <button class="btn-primary" id="btnOpenAddCourseModal">+ Add Course</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Instructor</th>
+                <th>Credits</th>
+                <th>Schedule</th>
+                <th>Room</th>
+              </tr>
+            </thead>
+            <tbody id="adminCoursesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Admin: Analytics Dashboard (Bonus Feature) -->
+      <section id="panelAdminAnalytics" class="admin-panel glass-panel" style="display: none;">
+        <div class="panel-header">
+          <div>
+            <h3>Academic Performance & Analytics</h3>
+            <p>Real-time statistical report of grade distribution and student risk factors.</p>
+          </div>
+          <button class="btn-secondary" id="btnExportReport">📥 Export CSV Report</button>
+        </div>
+
+        <div class="analytics-grid">
+          <!-- Grade Distribution Canvas Chart -->
+          <div class="chart-card">
+            <h4>Grade Distribution (Institutional)</h4>
+            <div class="canvas-container">
+              <canvas id="gradeChartCanvas" width="400" height="240"></canvas>
+            </div>
+          </div>
+
+          <!-- Attendance Risk Warning List -->
+          <div class="chart-card">
+            <h4>Academic Intervention & Risk Alerts</h4>
+            <div id="warningStudentsList" class="warning-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== 2. TEACHER VIEW ==================== -->
+    <div id="viewTeacher" class="role-view" style="display: none;">
+      <!-- Course Selector -->
+      <div class="teacher-course-bar glass-panel">
+        <div>
+          <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">ACTIVE INSTRUCTION COURSE</span>
+          <select id="teacherCourseSelect" class="select-styled" style="font-size:1.05rem; font-weight:600; padding:0.4rem 0.8rem;">
+            <!-- Rendered by JS -->
+          </select>
+        </div>
+        <div class="teacher-sub-tabs">
+          <button class="sub-tab-btn active" id="tabTeacherAttendance">📝 Mark Attendance</button>
+          <button class="sub-tab-btn" id="tabTeacherGrades">🎯 Submit Grades</button>
+        </div>
+      </div>
+
+      <!-- Teacher: Attendance Module -->
+      <section id="panelTeacherAttendance" class="teacher-panel glass-panel">
+        <div class="panel-header">
+          <div>
+            <h3>Course Attendance Roster</h3>
+            <p>Select date and record presence for each enrolled student.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <label style="font-size:0.85rem; color:var(--text-muted);">Session Date:</label>
+            <input type="date" id="attendanceDatePicker" class="input-styled" style="background:#1e293b; padding:0.4rem 0.8rem; border-radius:6px; border:1px solid var(--border-color);">
+            <button class="btn-primary" id="btnSaveAttendance">💾 Save Attendance</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th style="text-align: center;">Attendance Status</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceRosterBody">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Teacher: Gradebook Module -->
+      <section id="panelTeacherGrades" class="teacher-panel glass-panel" style="display: none;">
+        <div class="panel-header">
+          <div>
+            <h3>Course Gradebook & Evaluation</h3>
+            <p>Submit scores: Assignments (25%), Midterm (35%), Final Exam (40%).</p>
+          </div>
+          <button class="btn-primary" id="btnSaveGrades">💾 Save Grades</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Assignment (100)</th>
+                <th>Midterm (100)</th>
+                <th>Final Exam (100)</th>
+                <th>Total Weighted</th>
+                <th>Letter Grade</th>
+              </tr>
+            </thead>
+            <tbody id="gradesRosterBody">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== 3. STUDENT VIEW ==================== -->
+    <div id="viewStudent" class="role-view" style="display: none;">
+      <!-- Student Profile Card Banner -->
+      <section class="student-profile-banner glass-panel">
+        <div class="student-banner-left">
+          <div class="student-big-avatar">👨‍🎓</div>
+          <div>
+            <h2 id="studentViewName">Alex Rivera</h2>
+            <p id="studentViewSub">Roll No: 26CS042 | B.Tech Computer Science & Engineering (Semester 6)</p>
+            <div class="student-tags">
+              <span class="badge success" id="studentViewStatus">Active Standing</span>
+              <span class="badge info">Spring 2026</span>
+              <span class="badge">Dean's Honor List</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="student-banner-right">
+          <div class="cgpa-pill-box">
+            <span class="cgpa-label">CUMULATIVE GPA</span>
+            <div class="cgpa-number" id="studentViewCgpa">3.82</div>
+            <span class="cgpa-scale">/ 4.0 Scale</span>
+          </div>
+          <button class="btn-secondary" id="btnPrintTranscript" onclick="window.print()">
+            🖨️ Official Transcript
+          </button>
+        </div>
+      </section>
+
+      <!-- Student Courses, Attendance, & Grades Grid -->
+      <section class="student-courses-grid" id="studentCoursesGrid">
+        <!-- Injected via JS -->
+      </section>
+    </div>
+  </main>
+
+  <!-- Add Student Modal (Admin) -->
+  <div class="modal-backdrop" id="addStudentModal" style="display: none;">
+    <div class="modal-dialog glass-panel">
+      <div class="modal-header">
+        <h3>➕ Register New Student</h3>
+        <button class="btn-close" id="btnCloseAddStudentModal">&times;</button>
+      </div>
+      <form id="formAddStudent" class="modal-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="newStudentName" placeholder="e.g. Elena Rostova" required>
+        </div>
+        <div class="form-group">
+          <label>Institutional Email</label>
+          <input type="email" id="newStudentEmail" placeholder="elena.r@codsoft.edu" required>
+        </div>
+        <div class="form-group">
+          <label>Roll Number</label>
+          <input type="text" id="newStudentRoll" placeholder="e.g. 26CS102" required>
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <select id="newStudentDept" class="select-styled">
+            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+            <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
+            <option value="Data Science & AI">Data Science & AI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current Semester</label>
+          <input type="number" id="newStudentSem" value="6" min="1" max="8">
+        </div>
+        <button type="submit" class="btn-primary btn-block">Add to Cloud Database</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Course Modal (Admin) -->
+  <div class="modal-backdrop" id="addCourseModal" style="display: none;">
+    <div class="modal-dialog glass-panel">
+      <div class="modal-header">
+        <h3>➕ Create New Course</h3>
+        <button class="btn-close" id="btnCloseAddCourseModal">&times;</button>
+      </div>
+      <form id="formAddCourse" class="modal-form">
+        <div class="form-group">
+          <label>Course Code</label>
+          <input type="text" id="newCourseCode" placeholder="e.g. CS-410" required>
+        </div>
+        <div class="form-group">
+          <label>Course Title</label>
+          <input type="text" id="newCourseTitle" placeholder="e.g. Cloud Security & Cryptography" required>
+        </div>
+        <div class="form-group">
+          <label>Assigned Instructor</label>
+          <input type="text" id="newCourseInstructor" placeholder="Prof. Ananya Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>Credits</label>
+          <input type="number" id="newCourseCredits" value="3" min="1" max="6">
+        </div>
+        <div class="form-group">
+          <label>Schedule & Room</label>
+          <input type="text" id="newCourseSchedule" placeholder="Tue/Thu 11:00 AM, Room 304">
+        </div>
+        <button type="submit" class="btn-primary btn-block">Add Course</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

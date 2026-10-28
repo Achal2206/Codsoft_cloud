@@ -1,0 +1,87 @@
+[
+  {
+    "id": "STU-2026-001",
+    "name": "Alex Rivera",
+    "email": "alex.rivera@codsoft.edu",
+    "rollNo": "26CS042",
+    "department": "Computer Science & Engineering",
+    "semester": 6,
+    "cgpa": 3.82,
+    "enrolledCourses": [
+      "CS301",
+      "CS302",
+      "CS204",
+      "CS405"
+    ],
+    "phone": "+1 (555) 349-2041",
+    "admissionYear": 2023,
+    "status": "Active"
+  },
+  {
+    "id": "STU-2026-002",
+    "name": "Priya Patel",
+    "email": "priya.patel@codsoft.edu",
+    "rollNo": "26CS089",
+    "department": "Computer Science & Engineering",
+    "semester": 6,
+    "cgpa": 3.95,
+    "enrolledCourses": [
+      "CS301",
+      "CS302",
+      "CS204"
+    ],
+    "phone": "+1 (555) 782-9012",
+    "admissionYear": 2023,
+    "status": "Active"
+  },
+  {
+    "id": "STU-2026-003",
+    "name": "Marcus Chen",
+    "email": "marcus.chen@codsoft.edu",
+    "rollNo": "26CS015",
+    "department": "Cloud Computing & DevOps",
+    "semester": 6,
+    "cgpa": 2.85,
+    "enrolledCourses": [
+      "CS301",
+      "CS405"
+    ],
+    "phone": "+1 (555) 412-8871",
+    "admissionYear": 2023,
+    "status": "Active"
+  },
+  {
+    "id": "STU-2026-004",
+    "name": "Sara Khan",
+    "email": "sara.khan@codsoft.edu",
+    "rollNo": "26CS094",
+    "department": "Computer Science & Engineering",
+    "semester": 6,
+    "cgpa": 3.45,
+    "enrolledCourses": [
+      "CS301",
+      "CS302",
+      "CS204",
+      "CS405"
+    ],
+    "phone": "+1 (555) 903-1284",
+    "admissionYear": 2023,
+    "status": "Active"
+  },
+  {
+    "id": "STU-2026-005",
+    "name": "David Miller",
+    "email": "david.miller@codsoft.edu",
+    "rollNo": "26CS031",
+    "department": "Cloud Computing & DevOps",
+    "semester": 6,
+    "cgpa": 2.4,
+    "enrolledCourses": [
+      "CS301",
+      "CS204"
+    ],
+    "phone": "+1 (555) 671-3342",
+    "admissionYear": 2023,
+    "status": "Academic Warning"
+  }
+]

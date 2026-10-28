@@ -1,0 +1,40 @@
+[
+  {
+    "pnr": "CS-BUS-849201",
+    "busId": "BUS-101",
+    "busOperator": "Zingbus Electric Superfast",
+    "busType": "Volvo 9600 Multi-Axle AC Sleeper (2+1)",
+    "from": "Mumbai",
+    "to": "Pune",
+    "journeyDate": "2026-10-22",
+    "departureTime": "06:30 AM",
+    "seats": [
+      "L1",
+      "L2"
+    ],
+    "passengers": [
+      {
+        "name": "Aditya Roy",
+        "age": 28,
+        "gender": "Male"
+      },
+      {
+        "name": "Pooja Roy",
+        "age": 26,
+        "gender": "Female"
+      }
+    ],
+    "contactEmail": "aditya.roy@example.com",
+    "contactPhone": "+91 9876543210",
+    "boardingPoint": "Borivali (06:00 AM)",
+    "droppingPoint": "Swargate (10:00 AM)",
+    "fareDetails": {
+      "baseFare": 1300,
+      "gst": 65,
+      "platformFee": 20,
+      "totalFare": 1385
+    },
+    "status": "CONFIRMED",
+    "bookedAt": "2026-10-22T08:30:30.238Z"
+  }
+]

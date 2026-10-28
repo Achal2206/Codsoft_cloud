@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  task1-file-storage:
+    build: ./TASK-1_Cloud-File-Storage
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      # Optional AWS S3 credentials
+      # - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      # - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      # - AWS_REGION=${AWS_REGION:-us-east-1}
+      # - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
+
+  task3-bus-reservation:
+    build: ./TASK-3_Bus-Ticket-Reservation
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+      - CLOUD_REGION=ap-south-1
+
+  task5-student-management:
+    build: ./TASK-5_Student-Management-System
+    ports:
+      - "5003:5003"
+    environment:
+      - PORT=5003

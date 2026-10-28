@@ -1,0 +1,70 @@
+[
+  {
+    "id": "2efbfb29-fffb-441d-8516-bbf29f758c4e",
+    "originalName": "CN_NP_Unit_3.pdf",
+    "storedName": "1793191977275-5b287343d2bb_CN_NP_Unit_3.pdf",
+    "cloudKey": "1793191977275-5b287343d2bb_CN_NP_Unit_3.pdf",
+    "mimeType": "application/pdf",
+    "size": 2262699,
+    "category": "document",
+    "sha256": "45924bc3a9032a2c9ac5686f5cca9514cc2052741777d28628f19726e93ca2e4",
+    "access": "public",
+    "uploadedAt": "2026-10-28T12:52:57.316Z",
+    "provider": "Local Cloud Storage (Azure/S3/Drive Emulator)",
+    "driveFileId": null,
+    "webViewLink": null,
+    "webContentLink": null
+  },
+  {
+    "id": "19a424c5-8d54-4948-a225-39accfe4df99",
+    "originalName": "2401331720009_achal (2).pdf",
+    "storedName": "1793191700446-7292743452c3_2401331720009_achal__2_.pdf",
+    "cloudKey": "1793191700446-7292743452c3_2401331720009_achal__2_.pdf",
+    "mimeType": "application/pdf",
+    "size": 446924,
+    "category": "document",
+    "sha256": "215c89503182191dda618001fc3d2cd22fdc14fe8d475f95b4a4bc925e70620c",
+    "access": "public",
+    "uploadedAt": "2026-10-28T12:48:20.460Z",
+    "provider": "Local Cloud Storage (Azure/S3/Drive Emulator)",
+    "driveFileId": null,
+    "webViewLink": null,
+    "webContentLink": null
+  },
+  {
+    "id": "demo-sample-architecture",
+    "originalName": "Cloud_Architecture_Overview.pdf",
+    "storedName": "sample_cloud_arch.pdf",
+    "mimeType": "application/pdf",
+    "size": 428900,
+    "category": "document",
+    "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+    "access": "public",
+    "uploadedAt": "2026-10-21T13:13:26.744Z",
+    "provider": "Cloud S3 Bucket"
+  },
+  {
+    "id": "demo-cloud-diagram",
+    "originalName": "System_Diagram.png",
+    "storedName": "sample_diagram.png",
+    "mimeType": "image/png",
+    "size": 184500,
+    "category": "image",
+    "sha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    "access": "private",
+    "uploadedAt": "2026-10-22T01:13:26.744Z",
+    "provider": "Cloud S3 Bucket"
+  },
+  {
+    "id": "demo-config-template",
+    "originalName": "docker-compose.cloud.yml",
+    "storedName": "docker-compose.cloud.yml",
+    "mimeType": "text/yaml",
+    "size": 4520,
+    "category": "code",
+    "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+    "access": "public",
+    "uploadedAt": "2026-10-22T11:13:26.744Z",
+    "provider": "Cloud S3 Bucket"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "usr-admin-1",
+    "name": "Dr. Arvind Mehta",
+    "email": "admin@codsoft.edu",
+    "role": "admin",
+    "title": "Dean of Academic Computing",
+    "avatar": "👨‍💼"
+  },
+  {
+    "id": "usr-teach-1",
+    "name": "Prof. Ananya Sharma",
+    "email": "ananya.sharma@codsoft.edu",
+    "role": "teacher",
+    "title": "Associate Professor, CS & Cloud Systems",
+    "avatar": "👩‍🏫"
+  },
+  {
+    "id": "usr-stud-1",
+    "name": "Alex Rivera",
+    "email": "alex.rivera@codsoft.edu",
+    "role": "student",
+    "studentId": "STU-2026-001",
+    "title": "Undergraduate (Year 3)",
+    "avatar": "👨‍🎓"
+  }
+]

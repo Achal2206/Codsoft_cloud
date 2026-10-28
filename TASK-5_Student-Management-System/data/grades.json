@@ -1,0 +1,79 @@
+[
+  {
+    "id": "grd-1",
+    "studentId": "STU-2026-001",
+    "courseId": "CS301",
+    "assignmentScore": 92,
+    "midtermScore": 89,
+    "finalScore": 94,
+    "totalScore": 92,
+    "letterGrade": "A",
+    "gradePoints": 4
+  },
+  {
+    "id": "grd-2",
+    "studentId": "STU-2026-001",
+    "courseId": "CS302",
+    "assignmentScore": 85,
+    "midtermScore": 88,
+    "finalScore": 86,
+    "totalScore": 86.5,
+    "letterGrade": "A-",
+    "gradePoints": 3.7
+  },
+  {
+    "id": "grd-3",
+    "studentId": "STU-2026-001",
+    "courseId": "CS204",
+    "assignmentScore": 95,
+    "midtermScore": 90,
+    "finalScore": 92,
+    "totalScore": 92.5,
+    "letterGrade": "A",
+    "gradePoints": 4
+  },
+  {
+    "id": "grd-4",
+    "studentId": "STU-2026-001",
+    "courseId": "CS405",
+    "assignmentScore": 88,
+    "midtermScore": 84,
+    "finalScore": 85,
+    "totalScore": 85.5,
+    "letterGrade": "A-",
+    "gradePoints": 3.7
+  },
+  {
+    "id": "grd-5",
+    "studentId": "STU-2026-002",
+    "courseId": "CS301",
+    "assignmentScore": 98,
+    "midtermScore": 96,
+    "finalScore": 99,
+    "totalScore": 98,
+    "letterGrade": "A+",
+    "gradePoints": 4
+  },
+  {
+    "id": "grd-6",
+    "studentId": "STU-2026-003",
+    "courseId": "CS301",
+    "assignmentScore": 72,
+    "midtermScore": 70,
+    "finalScore": 74,
+    "totalScore": 72,
+    "letterGrade": "B-",
+    "gradePoints": 2.7
+  },
+  {
+    "id": "grd-7",
+    "studentId": "STU-2026-005",
+    "courseId": "CS301",
+    "assignmentScore": 50,
+    "midtermScore": 55,
+    "finalScore": 52,
+    "totalScore": 52.5,
+    "letterGrade": "D",
+    "gradePoints": 1
+  }
+]

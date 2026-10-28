@@ -1,0 +1,202 @@
+[
+  {
+    "id": "BUS-101",
+    "operator": "Zingbus Electric Superfast",
+    "busType": "Volvo 9600 Multi-Axle AC Sleeper (2+1)",
+    "from": "Mumbai",
+    "to": "Pune",
+    "departureTime": "06:30 AM",
+    "arrivalTime": "10:00 AM",
+    "duration": "3h 30m",
+    "basePrice": 650,
+    "rating": 4.8,
+    "totalSeats": 30,
+    "amenities": [
+      "Wi-Fi",
+      "Charging Point",
+      "Blanket",
+      "Water Bottle",
+      "Live GPS"
+    ],
+    "boardingPoints": [
+      "Borivali (06:00 AM)",
+      "Andheri East (06:30 AM)",
+      "Vashi Plaza (07:15 AM)"
+    ],
+    "droppingPoints": [
+      "Wakad Bridge (09:30 AM)",
+      "Swargate (10:00 AM)"
+    ]
+  },
+  {
+    "id": "BUS-102",
+    "operator": "IntrCity SmartBus Premium",
+    "busType": "Scania AC Multi-Axle Semi-Sleeper (2+2)",
+    "from": "Mumbai",
+    "to": "Pune",
+    "departureTime": "08:00 AM",
+    "arrivalTime": "11:45 AM",
+    "duration": "3h 45m",
+    "basePrice": 550,
+    "rating": 4.7,
+    "totalSeats": 36,
+    "amenities": [
+      "Charging Point",
+      "Reading Light",
+      "Live GPS",
+      "Water Bottle"
+    ],
+    "boardingPoints": [
+      "Dadar TT (08:00 AM)",
+      "Chembur (08:30 AM)",
+      "Navi Mumbai (09:00 AM)"
+    ],
+    "droppingPoints": [
+      "Hinjawadi Flyover (11:15 AM)",
+      "Pune Station (11:45 AM)"
+    ]
+  },
+  {
+    "id": "BUS-201",
+    "operator": "KPN Travels Executive",
+    "busType": "Volvo B11R Multi-Axle AC Sleeper (2+1)",
+    "from": "Bangalore",
+    "to": "Hyderabad",
+    "departureTime": "09:00 PM",
+    "arrivalTime": "06:30 AM",
+    "duration": "9h 30m",
+    "basePrice": 1250,
+    "rating": 4.9,
+    "totalSeats": 30,
+    "amenities": [
+      "Wi-Fi",
+      "Personal TV",
+      "Charging Point",
+      "Blanket",
+      "Pillow",
+      "Emergency SOS"
+    ],
+    "boardingPoints": [
+      "Majestic (09:00 PM)",
+      "Hebbal (09:45 PM)",
+      "Yelahanka (10:15 PM)"
+    ],
+    "droppingPoints": [
+      "Kukatpally (05:45 AM)",
+      "Ameerpet (06:15 AM)",
+      "MGBS (06:30 AM)"
+    ]
+  },
+  {
+    "id": "BUS-202",
+    "operator": "Orange Tours Royal Class",
+    "busType": "Mercedes-Benz Multi-Axle AC Semi-Sleeper",
+    "from": "Bangalore",
+    "to": "Hyderabad",
+    "departureTime": "10:15 PM",
+    "arrivalTime": "07:45 AM",
+    "duration": "9h 30m",
+    "basePrice": 1100,
+    "rating": 4.6,
+    "totalSeats": 36,
+    "amenities": [
+      "Charging Point",
+      "Water Bottle",
+      "Blanket",
+      "Live GPS"
+    ],
+    "boardingPoints": [
+      "Electronic City (09:15 PM)",
+      "Silk Board (09:45 PM)",
+      "Majestic (10:15 PM)"
+    ],
+    "droppingPoints": [
+      "Gachibowli (07:00 AM)",
+      "Secunderabad (07:45 AM)"
+    ]
+  },
+  {
+    "id": "BUS-301",
+    "operator": "Rajasthan Goldline Express",
+    "busType": "BharatBenz AC Seater/Sleeper",
+    "from": "Delhi",
+    "to": "Jaipur",
+    "departureTime": "07:15 AM",
+    "arrivalTime": "12:30 PM",
+    "duration": "5h 15m",
+    "basePrice": 590,
+    "rating": 4.5,
+    "totalSeats": 32,
+    "amenities": [
+      "Charging Point",
+      "Water Bottle",
+      "Live GPS"
+    ],
+    "boardingPoints": [
+      "Kashmere Gate (07:15 AM)",
+      "Dhaula Kuan (08:00 AM)",
+      "IFFCO Chowk Gurgaon (08:45 AM)"
+    ],
+    "droppingPoints": [
+      "Sindhi Camp (12:15 PM)",
+      "Narayan Singh Circle (12:30 PM)"
+    ]
+  },
+  {
+    "id": "BUS-401",
+    "operator": "SRS Travels Grand Cruiser",
+    "busType": "Scania AC Sleeper 2+1",
+    "from": "Chennai",
+    "to": "Bangalore",
+    "departureTime": "10:30 PM",
+    "arrivalTime": "05:45 AM",
+    "duration": "7h 15m",
+    "basePrice": 850,
+    "rating": 4.8,
+    "totalSeats": 30,
+    "amenities": [
+      "Wi-Fi",
+      "Blanket",
+      "Charging Point",
+      "Snacks"
+    ],
+    "boardingPoints": [
+      "Koyambedu (10:30 PM)",
+      "Sriperumbudur (11:15 PM)"
+    ],
+    "droppingPoints": [
+      "Electronic City (05:00 AM)",
+      "Madiwala (05:25 AM)",
+      "Majestic (05:45 AM)"
+    ]
+  },
+  {
+    "id": "BUS-501",
+    "operator": "Paul Travels Sunset Cruiser",
+    "busType": "Volvo 9600 AC Sleeper Luxury",
+    "from": "Mumbai",
+    "to": "Goa",
+    "departureTime": "08:00 PM",
+    "arrivalTime": "08:30 AM",
+    "duration": "12h 30m",
+    "basePrice": 1450,
+    "rating": 4.9,
+    "totalSeats": 30,
+    "amenities": [
+      "Wi-Fi",
+      "Dinner Stop",
+      "Blanket",
+      "Charging Socket",
+      "Live Tracking"
+    ],
+    "boardingPoints": [
+      "Borivali (07:00 PM)",
+      "Sion (08:00 PM)",
+      "Vashi (08:45 PM)"
+    ],
+    "droppingPoints": [
+      "Mapusa (07:45 AM)",
+      "Panjim (08:30 AM)"
+    ]
+  }
+]
